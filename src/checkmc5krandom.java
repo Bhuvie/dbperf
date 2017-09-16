@@ -105,7 +105,7 @@ public class checkmc5krandom extends javax.servlet.http.HttpServlet {
     public void Memcache()
     {
         //AuthDescriptor ad = new AuthDescriptor(new String[] { "PLAIN" },
-        //      new PlainCallbackHandler("AKIAJTC6XAIDKJDZQTPQ", "Iv+ec5wr5iOjw9QTYQTuNWHBPp3StRlQ2g0yomLw"));
+        //      new PlainCallbackHandler("###############", "########################"));
 
         try {
             mc = new MemcachedClient(new ConnectionFactoryBuilder()
