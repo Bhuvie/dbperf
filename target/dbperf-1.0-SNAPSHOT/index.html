@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="ISO-8859-1">
+    <title>DB Performance</title>
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/static/js/jquery.min.js">
+    </script>
+    <script src="/static/js/jquery.cookie.min.js">
+    </script>
+    <script src="/static/js/bootstrap.min.js">
+    </script>
+    <script>
+        $(function() {
+            $('#bcreatetable').click(function() {
+                event.preventDefault();
+                $.post("createtable", $("#createtableform").serialize(), function(responseHtml) {
+                    alert("Time Taken: "+responseHtml+" ms");
+                });
+            });
+        });
+        $(function() {
+            $('#bchkperf').click(function() {
+                event.preventDefault();
+                $.post("checkperf", $("#checkperfform").serialize(), function(responseHtml) {
+                    alert("Time Taken: "+responseHtml+" ms");
+                });
+            });
+        });
+        $(function() {
+            $('#bchkperfrds').click(function() {
+                event.preventDefault();
+                $.post("checkperfrds", $("#checkperfrdsform").serialize(), function(responseHtml) {
+                    alert("Time Taken: "+responseHtml+" ms");
+                });
+            });
+        });
+        $(function() {
+            $('#bchkperfrdsrandom').click(function() {
+                event.preventDefault();
+                $.post("checkrds5krandom", $("#checkperfrdsrandomform").serialize(), function(responseHtml) {
+                    alert("Time Taken: "+responseHtml+" ms");
+                });
+            });
+        });
+        $(function() {
+            $('#bchkperfmcrandom').click(function() {
+                event.preventDefault();
+                $.post("checkmc5krandom", $("#checkperfmcrandomform").serialize(), function(responseHtml) {
+                    alert("Time Taken: "+responseHtml+" ms");
+                });
+            });
+        });
+        $(function() {
+            $('#bchkperfrdslimited').click(function() {
+                event.preventDefault();
+                $.post("rdslimitedquery", $("#checkperfrdslimitedform").serialize(), function(responseHtml) {
+                    alert("Time Taken: "+responseHtml+" ms");
+                });
+            });
+        });
+        $(function() {
+            $('#bremovecanada').click(function() {
+                event.preventDefault();
+                $.post("removeCanada", $("#removecanadaform").serialize(), function(responseHtml) {
+                    alert(responseHtml);
+                });
+            });
+        });
+        $(function() {
+            $('#bchkperfrds250').click(function() {
+                event.preventDefault();
+                $.post("checkperfrds250", $("#checkperfrds250form").serialize(), function(responseHtml) {
+                    alert("Time Taken: "+responseHtml+" ms");
+                });
+            });
+        });
+        $(function() {
+            $('#bchkperfmc250').click(function() {
+                event.preventDefault();
+                $.post("checkperfmc250", $("#checkperfmc250form").serialize(), function(responseHtml) {
+                    alert("Time Taken: "+responseHtml+" ms");
+                });
+            });
+        });
+        $(function() {
+            $('#bchkperffive').click(function() {
+                event.preventDefault();
+                $.post("checkperffive", $("#checkperffiveform").serialize(), function(responseHtml) {
+                    alert("Time Taken: "+responseHtml+" ms");
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+<h4>Name: Rajakarthikeyan, Bhuvanesh   ID: 0051   Section: 4PM </h4>
+<div class="container">
+    <h3>Load the data</h3>
+    <form id="createtableform" method="post" name="createtableform">
+        CSV File: <input name="filename" placeholder="Enter the file name" type="text"><br>
+        <button class="btn btn-primary" id="bcreatetable" name="bcreatetable" type="button">Load CSV File to RDS</button>
+    </form>
+</div>
+<div class="container">
+    <h3>Check the performance Memcached</h3>
+    <form id="checkperfform" method="post" name="checkperfform">
+        Repetitions: <input name="txtquerytimes" placeholder="Enter the number of times" type="text"><br>
+        <button class="btn btn-primary" id="bchkperf" name="bchkperf" type="button">Check Performance Memcached</button>
+    </form>
+</div>
+<div class="container">
+    <h3>Check the performance RDS</h3>
+    <form id="checkperfrdsform" method="post" name="checkperfrdsform">
+        Repetitions: <input name="txtquerytimesrds" placeholder="Enter the number of times" type="text"><br>
+        <button class="btn btn-primary" id="bchkperfrds" name="bchkperfrds" type="button">Check Performance RDS</button>
+    </form>
+</div>
+<div class="container">
+    <h3>Check the performance RDS Random Queries</h3>
+    <form id="checkperfrdsrandomform" method="post" name="checkperfrdsrandomform">
+        Repetitions: <input name="txtquerytimesrdsrandom" placeholder="Enter the number of times" type="text"><br>
+        <button class="btn btn-primary" id="bchkperfrdsrandom" name="bchkperfrdsrandom" type="button">Check Performance RDS Random Queries</button>
+    </form>
+</div>
+<div class="container">
+    <h3>Check the performance MC Random Queries</h3>
+    <form id="checkperfmcrandomform" method="post" name="checkperfmcrandomform">
+        Repetitions: <input name="txtquerytimesmcrandom" placeholder="Enter the number of times" type="text"><br>
+        <button class="btn btn-primary" id="bchkperfmcrandom" name="bchkperfmcrandom" type="button">Check Performance MC Random Queries</button>
+    </form>
+</div>
+<div class="container">
+    <h3>Modify Tuples btwn 38 42</h3>
+    <form id="checkperfrdslimitedform" method="post" name="checkperfrdslimitedform">
+       Enter Col Name: <input name="txtquerytimesrdslimited" placeholder="Enter Aug, Sep or Decem" type="text"><br>
+        <button class="btn btn-primary" id="bchkperfrdslimited" name="bchkperfrdslimited" type="button">Check Performance RDS Limited Queries</button>
+    </form>
+</div>
+<div class="container">
+    <h3>Remove Cynthia or David</h3>
+    <form id="removecanadaform" method="post" name="removecanadaform">
+        <button class="btn btn-primary" id="bremovecanada" name="bremovecanada" type="button">Remove Canada</button>
+    </form>
+</div>
+<div class="container">
+    <h3>Param, Op, Value RDS 500</h3>
+    <form id="checkperfrds250form" method="post" name="checkperfrds250form">
+        Enter Name: <input name="givenname" placeholder="Enter Name" type="text"> Age Lower Range: <input name="age1" placeholder="Enter Age 1" type="text"> Age Lower Range: <input name="age2" placeholder="Enter Age 2" type="text"><br>
+        <button class="btn btn-primary" id="bchkperfrds250" name="bchkperfrds250" type="button">Execute</button>
+    </form>
+</div>
+<div class="container">
+    <h3>Param, Op, Value MC 500</h3>
+    <form id="checkperfmc250form" method="post" name="checkperfmc250form">
+        Enter Name: <input name="givenname" placeholder="Enter Name" type="text"> Age Lower Range: <input name="age1" placeholder="Enter Age 1" type="text"> Age Lower Range: <input name="age2" placeholder="Enter Age 2" type="text"><br>
+        <button class="btn btn-primary" id="bchkperfmc250" name="bchkperfmc250" type="button">Execute</button>
+    </form>
+</div>
+<div class="container">
+    <h3>Get 5 Queries based on =</h3>
+    <form id="checkperffiveform" method="post" name="checkperffiveform">
+        Enter Col Name: <input name="colname1" placeholder="Enter Col Name" type="text"><br>
+        Enter Col Name: <input name="colname2" placeholder="Enter Col Name" type="text">
+        <button class="btn btn-primary" id="bchkperffive" name="bchkperffive" type="button">Execute</button>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="dbperf:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="dbperf-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="dbperf:war exploded" />
+    </root>
+  </artifact>
+</component>
